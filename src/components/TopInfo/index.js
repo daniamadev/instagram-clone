@@ -13,7 +13,7 @@ class TopInfo extends Component {
         </span>
         <span>
           <FiUser />
-          {user.name}
+          {user.name}Eu
         </span>
       </div>
     )

@@ -1,7 +1,6 @@
 import { createStore } from "redux"
 
 const initialState = {
-  count: 0,
   user: {},
 }
 
@@ -10,10 +9,6 @@ function reducer(state = initialState, action) {
     case "GET_USER":
       return {
         user: action.payload,
-      }
-    case "PUT_LIKE":
-      return {
-        count: action.payload + 1,
       }
     default:
       return state

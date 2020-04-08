@@ -2,7 +2,6 @@ import React, { Component } from "react"
 import axios from "axios"
 import { connect } from "react-redux"
 
-//export default function Sidebar() {
 class Sidebar extends Component {
   constructor(props) {
     super(props)
@@ -21,6 +20,7 @@ class Sidebar extends Component {
   }
 
   render() {
+    const { name, username } = this.props.user
     return (
       <div>
         <div className="user-info">
@@ -29,8 +29,8 @@ class Sidebar extends Component {
             src="https://randomuser.me/api/portraits/women/25.jpg"
           />
           <div className="user-bio">
-            <strong>{this.props.user.name}</strong>
-            <span>{this.props.user.username}</span>
+            <strong>{name}Daniela</strong>
+            <span>{username}@daniela</span>
           </div>
         </div>
         <div className="stories">
