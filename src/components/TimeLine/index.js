@@ -30,7 +30,6 @@ class Timeline extends Component {
 
   componentDidMount = () => {
     this.getPosts()
-    this.putLikes()
   }
 
   render() {

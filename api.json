@@ -59,7 +59,10 @@
     }
   ],
   "user": {
-    "likes": null
+    "id": 101,
+    "name": "Jeniffer Carvalho",
+    "username": "jenicarvalho",
+    "likes": 8
   },
   "perfil": {
     "userPicture": "https://randomuser.me/api/portraits/women/19.jpg",
