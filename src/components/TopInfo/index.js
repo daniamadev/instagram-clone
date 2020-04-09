@@ -4,16 +4,16 @@ import { connect } from "react-redux"
 
 class TopInfo extends Component {
   render() {
-    const { user } = this.props
+    const { likes, name } = this.props.user
     return (
       <div className="top-info">
         <span>
           <FiHeart />
-          <b>1</b>
+          <b>{likes}</b>
         </span>
         <span>
           <FiUser />
-          {user.name}Eu
+          {name}
         </span>
       </div>
     )
@@ -21,6 +21,7 @@ class TopInfo extends Component {
 }
 function mapStateToProps(state) {
   return {
+    likes: state.user.likes,
     user: state.user,
   }
 }

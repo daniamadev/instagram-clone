@@ -29,8 +29,8 @@ class Sidebar extends Component {
             src="https://randomuser.me/api/portraits/women/25.jpg"
           />
           <div className="user-bio">
-            <strong>{name}Daniela</strong>
-            <span>{username}@daniela</span>
+            <strong>{name}</strong>
+            <span>{username}</span>
           </div>
         </div>
         <div className="stories">
@@ -57,6 +57,7 @@ class Sidebar extends Component {
 function mapStateToProps(state) {
   return {
     user: state.user,
+    username: state.user.username,
   }
 }
 

@@ -4,11 +4,16 @@ import Sidebar from "../../components/Sidebar"
 import TimeLine from "../../components/TimeLine"
 import axios from "axios"
 import { connect } from "react-redux"
+//usa o connect no export
 
 class Home extends Component {
   getUser = async () => {
-    const { data } = await axios.get("http://localhost:3000/user")
-    this.props.dispatch({ type: "GET_USER", payload: data })
+    await axios.get("http://localhost:3000/user").then((res) => {
+      this.props.dispatch({
+        type: "GET_USER",
+        payload: res.data,
+      })
+    })
   }
 
   componentDidMount = () => {

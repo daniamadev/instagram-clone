@@ -8,6 +8,13 @@ function reducer(state = initialState, action) {
   switch (action.type) {
     case "GET_USER":
       return {
+        ...state,
+        //spread operator faz uma cópia do seu estado atual
+        user: action.payload,
+      }
+    case "PUT_LIKES":
+      return {
+        ...state,
         user: action.payload,
       }
     default:

@@ -58,7 +58,9 @@
       "time": "há 7 horas"
     }
   ],
-  "user": {},
+  "user": {
+    "likes": null
+  },
   "perfil": {
     "userPicture": "https://randomuser.me/api/portraits/women/19.jpg",
     "name": "Jeniffer Carvalho",

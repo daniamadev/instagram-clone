@@ -1,7 +1,6 @@
 import React, { Component } from "react"
 import { FiHeart } from "react-icons/fi"
 import axios from "axios"
-import Helmet from "react-helmet"
 import { connect } from "react-redux"
 
 //primeiro arquivo a ser trabalhado
@@ -14,18 +13,29 @@ class Timeline extends Component {
   //tem que ser uma array[]
   //nao um objeto {}
 
-  componentDidMount = () => {
-    axios.get("http://localhost:3000/posts").then((res) => {
+  getPosts = async () => {
+    await axios.get("http://localhost:3000/posts").then((res) => {
       this.setState({ conteudo: res.data })
     })
+  }
+
+  putLikes = async () => {
+    this.props.user.likes++
+    await axios.put("http://localhost:3000/user", this.props.user)
+    this.props.dispatch({
+      type: "PUT_LIKES",
+      payload: this.props.user,
+    })
+  }
+
+  componentDidMount = () => {
+    this.getPosts()
+    this.putLikes()
   }
 
   render() {
     return (
       <>
-        <Helmet>
-          <title>Timeline</title>
-        </Helmet>
         <div className="post">
           {this.state.conteudo.map((content) => (
             <div key={content.id}>
@@ -40,7 +50,7 @@ class Timeline extends Component {
                 <img src={content.postPicture} alt="daniela" />
               </div>
               <div>
-                <span className="post-likes">
+                <span className="post-likes" onClick={this.putLikes}>
                   <FiHeart />
                 </span>
               </div>
@@ -52,11 +62,10 @@ class Timeline extends Component {
     )
   }
 }
-// function mapStateToProps(state) {
-//   return {
+function mapStateToProps(state) {
+  return {
+    user: state.user,
+  }
+}
 
-//   }
-// }
-
-//export default connect(mapStateToProps)(Timeline)
-export default Timeline
+export default connect(mapStateToProps)(Timeline)
